@@ -2,24 +2,30 @@ package webserver;
 
 public class RequestLine {
 
+    private String method;
+    private String uri;
+    private String version;
 
-    public RequestLine(String meth, String value1) {
-
+    public RequestLine(String s) {
+        String[] tokens = s.split(" ");
+        method = tokens[0];
+        uri = tokens[1];
+        version = tokens[2];
     }
 
     public static RequestLine parse(String s) {
-
-    
-
-
-         return new RequestLine(values[0], values[1]);
+        return new RequestLine(s);
     }
 
     public String getMethod() {
-        return "";
+        return method;
     }
 
-    public String getPath() {
-        return null;
+    public String getUri() {
+        return uri;
+    }
+
+    public String getVersion() {
+        return version;
     }
 }
